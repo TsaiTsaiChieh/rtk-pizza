@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/rtk-pizza/static/css/main.3f0449c9.css",
-    "main.js": "/rtk-pizza/static/js/main.414df04c.js",
+    "main.js": "/rtk-pizza/static/js/main.636c0b12.js",
     "index.html": "/rtk-pizza/index.html",
     "main.3f0449c9.css.map": "/rtk-pizza/static/css/main.3f0449c9.css.map",
-    "main.414df04c.js.map": "/rtk-pizza/static/js/main.414df04c.js.map"
+    "main.636c0b12.js.map": "/rtk-pizza/static/js/main.636c0b12.js.map"
   },
   "entrypoints": [
     "static/css/main.3f0449c9.css",
-    "static/js/main.414df04c.js"
+    "static/js/main.636c0b12.js"
   ]
 }
