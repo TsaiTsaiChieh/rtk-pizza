@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {Button, Switch, Tag} from "antd"
+import {useDispatch, useSelector} from "react-redux"
+import {v4 as uuidv4} from "uuid"
 
-function App() {
+import {ToppingColors} from "./constant/colorMap"
+import {addTopping, toggleGluten} from "./store/reducers/pizzaSlice"
+
+import type {RootState} from "./store";
+const App = () => {
+  const Toppings = [
+    "pepperoni",
+    "sausage",
+    "onion",
+    "mushroom",
+    "olive",
+    "jalapeno",
+    "tomato",
+    "basil",
+    "anchovy",
+    "pineapple",
+    "bacon",
+  ];
+  const {toppings, gluten} = useSelector((state: RootState) => state.pizza);
+  const dispatch = useDispatch();
+  const onClick = (topping: string) => {
+    dispatch(addTopping(topping));
+  };
+  const onChange = () => {
+    dispatch(toggleGluten());
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="content">
+      <h1>Pizza</h1>
+      <div className="toppings">
+        {toppings.map((ele) => (
+          <Tag key={uuidv4()} color={ToppingColors[ele]}>
+            {ele}
+          </Tag>
+        ))}
+      </div>
+      <Switch
+        checkedChildren="Gluten true"
+        unCheckedChildren="Gluten off"
+        defaultChecked
+        onChange={onChange}
+      />
+      <div className="btn-wrap">
+        {Toppings.map((ele) => (
+          <Button type="primary" key={ele} onClick={() => onClick(ele)}>
+            Add {ele}
+          </Button>
+        ))}
+      </div>
     </div>
   );
-}
+};
 
 export default App;
