@@ -42,7 +42,7 @@ const App = () => {
       <Switch
         checkedChildren="Gluten true"
         unCheckedChildren="Gluten off"
-        defaultChecked
+        checked={gluten}
         onChange={onChange}
       />
       <div className="btn-wrap">
